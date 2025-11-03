@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For you 💙</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Galeri 3 foto ke bawah */
+    .gallery {
+      background-color: #7B113A;
+      border-radius: 20px;
+      margin: 30px auto;
+      padding: 30px 20px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .photo-card {
+      background-color: #150E56;
+      padding: 15px;
+      border-radius: 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    .photo-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .photo-card img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 15px;
+      border: 3px solid #FBFBFB;
+      object-fit: cover;
+    }
+
+    .photo-card p {
+      margin-top: 10px;
+      font-size: 1em;
+      color: #FBFBFB;
+      font-style: italic;
+    }
+
+    /* Tombol musik */
+    .music-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background-color: #7B113A;
+      color: #FBFBFB;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 0.9em;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 10;
+      transition: 0.3s;
+    }
+
+    .music-btn:hover {
+      background-color: #FBFBFB;
+      color: #7B113A;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="home-page">
+
+  <!-- Efek Bintang -->
+  <div class="starry-bg"></div>
+
+  <!-- Tombol Musik -->
+  <button class="music-btn" id="musicToggle">🔈 Music On</button>
+
+  <!-- Musik -->
+  <audio id="bgMusic" loop autoplay>
+    <source src="music/softsong.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="header">
+    <h1>Happy mensive baby!</h1>
+    <p class="subtitle">This is a small page about us, enjoy ❤︎</p>
+  </div>
+
+  <section class="gallery">
+    <h2>Our Memmories 📸</h2>
+
+    <div class="photo-card">
+      <img src="images/foto1.jpg" alt="Foto 1" />
+      <p>“You will always be my boo.”</p>
+    </div>
+
+    <div class="photo-card">
+      <img src="images/foto2.jpg" alt="Foto 2" />
+      <p>“I will support you in all your goals, no matter what they are. I will continue to choose you.”</p>
+    </div>
+
+    <div class="photo-card">
+      <img src="images/foto3.jpg" alt="Foto 3" />
+      <p>“I love you to the moon and back.”</p>
+    </div>
+  </section>
+
+  <section class="links">
+    <h2>Special Place</h2>
+    <div class="link-grid">
+      <a href="game.html" class="link-card">Game</a>
+      <a href="https://open.spotify.com/playlist/2LCltN9neo11aD0fK9dtsu?si=85bc7ecada4c4c9f" target="_blank" class="link-card">Spotify</a>
+      <a href="https://www.instagram.com/dyonghyuck?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="link-card">I Love You</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Thank you for everything, dear.</p>
+  </footer>
+
+  <script>
+    // Efek bintang kelap-kelip
+    const starContainer = document.querySelector(".starry-bg");
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.left = Math.random() * 100 + "vw";
+      star.style.top = Math.random() * 100 + "vh";
+      star.style.animationDuration = 1.5 + Math.random() * 2 + "s";
+      starContainer.appendChild(star);
+    }
+
+    // Efek fade-in foto saat di-scroll
+    const photoCards = document.querySelectorAll(".photo-card");
+
+    function showPhotos() {
+      photoCards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          card.classList.add("show");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", showPhotos);
+    window.addEventListener("load", showPhotos);
+
+    // Kontrol musik
+    const bgMusic = document.getElementById("bgMusic");
+    const musicToggle = document.getElementById("musicToggle");
+    let isPlaying = true;
+
+    musicToggle.addEventListener("click", () => {
+      if (isPlaying) {
+        bgMusic.pause();
+        musicToggle.textContent = "🔇 Music Off";
+      } else {
+        bgMusic.play();
+        musicToggle.textContent = "🔈 Music On";
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | For You </title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="login-page">
+
+  <!-- Efek Bintang -->
+  <div class="starry-bg"></div>
+
+  <div class="login-container">
+    <h2>Enter your password, dear </h2>
+    <input type="password" id="passwordInput" placeholder="Our Mensive Date.." />
+    <button onclick="checkPassword()">Enter</button>
+    <p id="errorMsg"></p>
+  </div>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    // Efek bintang otomatis
+    const starContainer = document.querySelector(".starry-bg");
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.left = Math.random() * 100 + "vw";
+      star.style.top = Math.random() * 100 + "vh";
+      star.style.animationDuration = 1.5 + Math.random() * 2 + "s";
+      starContainer.appendChild(star);
+    }
+  </script>
+
+</body>
+</html>
