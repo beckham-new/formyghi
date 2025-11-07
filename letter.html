@@ -61,17 +61,9 @@
       50% { transform: translateY(-8px); }
     }
 
-   .letter:active {
-  animation: none;
-  transform: none;
-}
-
-    @keyframes shake {
-      0% { transform: rotate(0deg); }
-      25% { transform: rotate(2deg); }
-      50% { transform: rotate(0deg); }
-      75% { transform: rotate(-2deg); }
-      100% { transform: rotate(0deg); }
+    .letter:active {
+      animation: none;
+      transform: none;
     }
 
     .envelope::before {
@@ -145,14 +137,11 @@
     <div class="letter">
       <h3>Dear My Ghi</h3>
       <p id="text" class="typing"></p>
-      <a href="home.html" class="back-btn">Back Home</a>
+      <a href="#" class="back-btn" onclick="parent.openPage('main.html')">Back Home</a>
     </div>
   </div>
 
-  <!-- Musik latar dan efek kertas -->
-  <audio id="bg-music" loop>
-    <source src="music/softlove.mp3" type="audio/mp3">
-  </audio>
+  <!-- Hanya efek kertas -->
   <audio id="paper-sound">
     <source src="music/paperopen.mp3" type="audio/mp3">
   </audio>
@@ -170,7 +159,6 @@
     }
 
     const envelope = document.getElementById("envelope");
-    const audio = document.getElementById("bg-music");
     const paperSound = document.getElementById("paper-sound");
     const textElement = document.getElementById("text");
 
@@ -180,7 +168,6 @@ With love, Raph Beckham.`;
 
     envelope.addEventListener("click", () => {
       envelope.classList.add("open");
-      audio.play();
       paperSound.play();
 
       // Efek ngetik
