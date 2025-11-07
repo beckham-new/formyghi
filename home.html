@@ -15,7 +15,7 @@
       width: 100%;
       height: 100%;
       background: url("images/foto-berdua.jpg") center/cover no-repeat;
-      filter: blur(12px) brightness(0.4);
+      filter: blur(6px) brightness(0.5);
       z-index: -2;
     }
 
@@ -89,17 +89,17 @@
     <h2>Our Memories 📸</h2>
 
     <div class="photo-card">
-      <img src="images/foto1.jpg" alt="Foto 1" />
+      <img src="images/foto1.jpg" alt="Foto 1" loading="lazy" />
       <p>“You will always be my boo.”</p>
     </div>
 
     <div class="photo-card">
-      <img src="images/foto2.jpg" alt="Foto 2" />
+      <img src="images/foto2.jpg" alt="Foto 2" loading="lazy" />
       <p>“I will support you in all your goals, no matter what they are. I will continue to choose you.”</p>
     </div>
 
     <div class="photo-card">
-      <img src="images/foto3.jpg" alt="Foto 3" />
+      <img src="images/foto3.jpg" alt="Foto 3" loading="lazy" />
       <p>“I love you to the moon and back.”</p>
     </div>
   </section>
@@ -122,7 +122,7 @@
   <script>
     // === EFEK BINTANG KELAP-KELIP ===
     const starContainer = document.querySelector(".starry-bg");
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < 25; i++) {
       const star = document.createElement("div");
       star.classList.add("star");
       star.style.left = Math.random() * 100 + "vw";
