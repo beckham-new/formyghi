@@ -5,10 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>For you 💙</title>
   <link rel="stylesheet" href="css/style.css" />
+
   <style>
+    /* --- FOTO BLUR BACKGROUND --- */
+    .blur-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("images/foto-berdua.jpg") center/cover no-repeat;
+      filter: blur(12px) brightness(0.4);
+      z-index: -2; /* pastikan di bawah bintang */
+    }
+
     /* Galeri 3 foto ke bawah */
     .gallery {
-      background-color: #7B113A;
+      background-color: rgba(123, 17, 58, 0.9);
       border-radius: 20px;
       margin: 30px auto;
       padding: 30px 20px;
@@ -19,10 +32,11 @@
       flex-direction: column;
       align-items: center;
       gap: 25px;
+      backdrop-filter: blur(3px);
     }
 
     .photo-card {
-      background-color: #150E56;
+      background-color: rgba(21, 14, 86, 0.85);
       padding: 15px;
       border-radius: 20px;
       text-align: center;
@@ -56,7 +70,7 @@
     /* Tombol musik */
     .music-btn {
       position: fixed;
-      top: 15px;
+      bottom: 15px; /* dipindah ke bawah */
       right: 15px;
       background-color: #7B113A;
       color: #FBFBFB;
@@ -77,7 +91,10 @@
     }
   </style>
 </head>
+
 <body class="home-page">
+  <!-- Foto Blur Background -->
+  <div class="blur-bg"></div>
 
   <!-- Efek Bintang -->
   <div class="starry-bg"></div>
@@ -87,16 +104,18 @@
 
   <!-- Musik -->
   <audio id="bgMusic" loop autoplay>
-    <source src="music/softlove.mp3" type="audio/mpeg">
+    <source src="music/softlove.mp3" type="audio/mpeg" />
   </audio>
 
+  <!-- HEADER -->
   <div class="header">
     <h1>Happy mensive baby!</h1>
     <p class="subtitle">This is a small page about us, enjoy ❤︎</p>
   </div>
 
+  <!-- GALERI FOTO -->
   <section class="gallery">
-    <h2>Our Memmories 📸</h2>
+    <h2>Our Memories 📸</h2>
 
     <div class="photo-card">
       <img src="images/foto1.jpg" alt="Foto 1" />
@@ -114,15 +133,17 @@
     </div>
   </section>
 
+  <!-- LINK SPESIAL -->
   <section class="links">
     <h2>Special Place</h2>
     <div class="link-grid">
       <a href="letter.html" class="link-card">Letter for You</a>
-      <a href="our-playlist.html" class="link-card">Our Song</a>
+      <a href="our-playlist.html" target="_blank" class="link-card">Our Song</a>
       <a href="wishwall.html" target="_blank" class="link-card">Make A Wish</a>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <p>Thank you for everything, dear.</p>
   </footer>
@@ -141,7 +162,6 @@
 
     // Efek fade-in foto saat di-scroll
     const photoCards = document.querySelectorAll(".photo-card");
-
     function showPhotos() {
       photoCards.forEach(card => {
         const rect = card.getBoundingClientRect();
@@ -150,7 +170,6 @@
         }
       });
     }
-
     window.addEventListener("scroll", showPhotos);
     window.addEventListener("load", showPhotos);
 
@@ -170,12 +189,5 @@
       isPlaying = !isPlaying;
     });
   </script>
-
 </body>
 </html>
-
-
-
-
-
-
