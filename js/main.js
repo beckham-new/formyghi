@@ -6,7 +6,7 @@ function checkPassword() {
   const errorMsg = document.getElementById("errorMsg");
 
   if (input === PAGE_PASSWORD) {
-    window.location.href = "home.html";
+    window.location.href = "main.html";
   } else {
     errorMsg.textContent = "You Forgot Babe? 😢";
   }
@@ -14,10 +14,10 @@ function checkPassword() {
 
 // Random quotes
 const quotes = [
-  "Aku tidak butuh alasan untuk mencintaimu.",
-  "Kamu rumahku, di mana pun aku berada.",
-  "Waktu berhenti setiap kali kamu tersenyum.",
-  "Kalau bisa, aku ingin bersamamu setiap detik."
+  "I don't need a reason to love you.", 
+  "You are my home, wherever I am.", 
+  "Time stops every time you smile.", 
+  "If I could, I would want to be with you every second."
 ];
 
 const quoteText = document.getElementById("quoteText");
