@@ -202,113 +202,41 @@ body.home-page {
   backdrop-filter: blur(5px);
 }
 
-/* =====================================================
-   HALAMAN GAME
-===================================================== */
-body.game-page {
-  background-color: #150E56;
-  color: #FBFBFB;
-  text-align: center;
-  min-height: 100vh;
+/* ===========================
+   GAMES
+=========================== */
+.mode-buttons {
   display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.game-container {
-  background-color: rgba(123, 17, 58, 0.7);
-  border-radius: 25px;
-  padding: 30px 20px;
-  margin: 40px auto;
-  width: 90%;
-  max-width: 900px;
-  box-shadow: 0 0 20px rgba(251, 251, 251, 0.15);
-  backdrop-filter: blur(8px);
-  position: relative;
-}
-
-canvas {
-  background-color: rgba(21, 14, 86, 0.8);
-  border: 3px solid #FBFBFB;
-  border-radius: 20px;
-  max-width: 100%;
-}
-
-.game-controls {
-  margin-top: 20px;
-  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 15px;
-  justify-content: center;
+  margin-bottom: 20px;
 }
 
-#startBtn,
-.back-btn {
+.mode-buttons button {
   background-color: #FBFBFB;
-  color: #150E56;
+  color: #7B113A;
   border: none;
-  padding: 12px 25px;
-  border-radius: 15px;
-  font-size: 1em;
-  cursor: pointer;
-  font-weight: 600;
-  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
-}
-
-#startBtn:hover,
-.back-btn:hover {
-  background-color: #7B113A;
-  color: #FBFBFB;
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(251, 251, 251, 0.3);
-}
-
-/* =====================================================
-   OVERLAY GAME OVER
-===================================================== */
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  color: #FFF;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  border-radius: 25px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease-in-out;
-  z-index: 5;
-}
-
-.overlay.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.overlay button,
-.overlay .back-btn {
-  margin: 15px 0;
-  padding: 12px 30px;
-  background-color: #7B113A;
-  border: none;
+  padding: 10px 20px;
   border-radius: 12px;
-  color: #FBFBFB;
-  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
-.overlay button:hover,
-.overlay .back-btn:hover {
-  background-color: #FBFBFB;
-  color: #150E56;
-  transform: scale(1.05);
+.mode-buttons button:hover {
+  background-color: #7B113A;
+  color: #FBFBFB;
+}
+
+#gameArea {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: rgba(21, 14, 86, 0.6);
+  border-radius: 15px;
+  min-height: 300px;
+  color: #FBFBFB;
+  backdrop-filter: blur(6px);
 }
 
 /* =====================================================
@@ -369,6 +297,115 @@ canvas {
   100% { opacity: 1; transform: scale(1.4); }
 }
 
+/* OUR PLAYLIST */
+.playlist-container {
+  background-color: rgba(123, 17, 58, 0.7);
+  border-radius: 20px;
+  padding: 24px;
+  width: 92%;
+  max-width: 940px;
+  margin: 28px auto 16px;
+  box-shadow: 0 0 20px rgba(251, 251, 251, 0.15);
+  backdrop-filter: blur(8px);
+}
 
+.playlist-container h2,
+.tracks-grid h2 {
+  margin-top: 0;
+}
+
+.playlist-note {
+  opacity: 0.9;
+  margin-bottom: 14px;
+}
+
+.embed-wrapper {
+  border: 3px solid #FBFBFB;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #150E56;
+}
+
+/* kartu lagu + deskripsi */
+.tracks-grid {
+  width: 92%;
+  max-width: 980px;
+  margin: 12px auto 40px;
+}
+
+.tracks-grid .track-card {
+  background-color: rgba(123, 17, 58, 0.65);
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 0 14px rgba(251, 251, 251, 0.12);
+  backdrop-filter: blur(6px);
+}
+
+.embed-wrapper.small {
+  border-width: 2px;
+}
+
+.desc {
+  margin-top: 10px;
+  text-align: left;
+  background: rgba(251, 251, 251, 0.08);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.desc > summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+}
+
+.desc > summary::-webkit-details-marker {
+  display: none;
+}
+
+.desc > summary::after {
+  content: " +";
+  font-weight: 700;
+}
+
+.desc[open] > summary::after {
+  content: " −";
+}
+
+.desc p {
+  margin: 8px 0 0;
+  color: #FBFBFB;
+  opacity: 0.95;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .playlist-container, .tracks-grid .track-card {
+    padding: 14px;
+  }
+  .embed-wrapper iframe {
+    height: 320px !important; /* biar muat di hp */
+  }
+}
+
+/* tombol kembali (konsisten dengan theme) */
+.back-btn {
+  background-color: #FBFBFB;
+  color: #150E56;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 8px;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #7B113A;
+  color: #FBFBFB;
+}
 
 
