@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For You 💙</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #150E56;
+      color: #FBFBFB;
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100vh;
+      border: none;
+    }
+
+    .music-btn {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      background-color: #7B113A;
+      color: #FBFBFB;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 0.9em;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 10;
+      transition: 0.3s;
+    }
+
+    .music-btn:hover {
+      background-color: #FBFBFB;
+      color: #7B113A;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Pemutar Musik Global -->
+  <audio id="bgMusic" loop autoplay>
+    <source src="music/softlove.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Tombol Musik -->
+  <button class="music-btn" id="musicToggle">🔈 Music On</button>
+
+  <!-- Frame Utama -->
+  <iframe id="pageFrame" src="home.html"></iframe>
+
+  <script>
+    // --- Kontrol musik ---
+    const bgMusic = document.getElementById("bgMusic");
+    const musicToggle = document.getElementById("musicToggle");
+    let isPlaying = true;
+
+    musicToggle.addEventListener("click", () => {
+      if (isPlaying) {
+        bgMusic.pause();
+        musicToggle.textContent = "🔇 Music Off";
+      } else {
+        bgMusic.play();
+        musicToggle.textContent = "🔈 Music On";
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // --- Fungsi untuk mengganti halaman ---
+    function openPage(page) {
+      document.getElementById("pageFrame").src = page;
+    }
+
+    // Buat fungsi bisa dipanggil dari dalam iframe
+    window.openPage = openPage;
+  </script>
+</body>
+</html>
