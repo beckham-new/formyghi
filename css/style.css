@@ -385,43 +385,6 @@ body.home-page {
   opacity: 0.95;
 }
 
-@media (max-width: 600px) {
-  .playlist-container, .tracks-grid .track-card {
-    padding: 14px;
-  }
-  .embed-wrapper iframe {
-    height: 320px !important; /* biar muat di hp */
-  }
-}
-/* === Responsive tambahan untuk playlist di HP === */
-@media (max-width: 600px) {
-  .playlist-container {
-    width: 95%;
-    margin: 20px auto;
-  }
-
-  .embed-wrapper iframe {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 320px;
-  }
-
-  .tracks-grid .track-card {
-    width: 100%;
-    margin: 10px 0;
-    padding: 12px;
-  }
-
-  .desc {
-    font-size: 0.9em;
-    line-height: 1.4;
-  }
-
-  .footer a.back-btn {
-    margin-bottom: 120px; /* tetap aman dari navigasi hp */
-  }
-}
-
 /* responsive */
 @media (max-width: 600px) {
   .playlist-container, .tracks-grid .track-card {
@@ -625,5 +588,4 @@ ul.wish-list li button:hover {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
 }
-
 
