@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
-    /* --- FOTO BLUR BACKGROUND --- */
+    /* === FOTO BLUR BACKGROUND === */
     .blur-bg {
       position: fixed;
       top: 0;
@@ -16,32 +16,34 @@
       height: 100%;
       background: url("images/foto-berdua.jpg") center/cover no-repeat;
       filter: blur(12px) brightness(0.4);
-      z-index: -2; /* pastikan di bawah bintang */
+      z-index: -2;
     }
 
-    /* Galeri 3 foto ke bawah */
+    /* === GALERI 3 FOTO === */
     .gallery {
-      background-color: rgba(123, 17, 58, 0.9);
+      background: rgba(123, 17, 58, 0.4);
       border-radius: 20px;
       margin: 30px auto;
       padding: 30px 20px;
       width: 90%;
       max-width: 600px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 25px;
-      backdrop-filter: blur(3px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .photo-card {
-      background-color: rgba(21, 14, 86, 0.85);
+      background-color: rgba(21, 14, 86, 0.6);
       padding: 15px;
       border-radius: 20px;
       text-align: center;
       width: 100%;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
       opacity: 0;
       transform: translateY(30px);
       transition: all 1s ease;
@@ -66,46 +68,15 @@
       color: #FBFBFB;
       font-style: italic;
     }
-
-    /* Tombol musik */
-    .music-btn {
-      position: fixed;
-      bottom: 15px; /* dipindah ke bawah */
-      right: 15px;
-      background-color: #7B113A;
-      color: #FBFBFB;
-      border: none;
-      border-radius: 50px;
-      padding: 10px 20px;
-      cursor: pointer;
-      font-size: 0.9em;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      z-index: 10;
-      transition: 0.3s;
-    }
-
-    .music-btn:hover {
-      background-color: #FBFBFB;
-      color: #7B113A;
-      transform: scale(1.05);
-    }
   </style>
 </head>
 
 <body class="home-page">
-  <!-- Foto Blur Background -->
+  <!-- FOTO LATAR BLUR -->
   <div class="blur-bg"></div>
 
-  <!-- Efek Bintang -->
+  <!-- EFEK BINTANG -->
   <div class="starry-bg"></div>
-
-  <!-- Tombol Musik -->
-  <button class="music-btn" id="musicToggle">🔈 Music On</button>
-
-  <!-- Musik -->
-  <audio id="bgMusic" loop autoplay>
-    <source src="music/softlove.mp3" type="audio/mpeg" />
-  </audio>
 
   <!-- HEADER -->
   <div class="header">
@@ -137,9 +108,9 @@
   <section class="links">
     <h2>Special Place</h2>
     <div class="link-grid">
-      <a href="letter.html" class="link-card">Letter for You</a>
-      <a href="our-playlist.html" target="_blank" class="link-card">Our Song</a>
-      <a href="wishwall.html" target="_blank" class="link-card">Make A Wish</a>
+      <a href="#" class="link-card" onclick="parent.openPage('letter.html')">Letter for You</a>
+      <a href="#" class="link-card" onclick="parent.openPage('our-playlist.html')">Our Song</a>
+      <a href="#" class="link-card" onclick="parent.openPage('wishwall.html')">Make A Wish</a>
     </div>
   </section>
 
@@ -149,7 +120,7 @@
   </footer>
 
   <script>
-    // Efek bintang kelap-kelip
+    // === EFEK BINTANG KELAP-KELIP ===
     const starContainer = document.querySelector(".starry-bg");
     for (let i = 0; i < 80; i++) {
       const star = document.createElement("div");
@@ -160,7 +131,7 @@
       starContainer.appendChild(star);
     }
 
-    // Efek fade-in foto saat di-scroll
+    // === ANIMASI FOTO FADE-IN ===
     const photoCards = document.querySelectorAll(".photo-card");
     function showPhotos() {
       photoCards.forEach(card => {
@@ -172,22 +143,6 @@
     }
     window.addEventListener("scroll", showPhotos);
     window.addEventListener("load", showPhotos);
-
-    // Kontrol musik
-    const bgMusic = document.getElementById("bgMusic");
-    const musicToggle = document.getElementById("musicToggle");
-    let isPlaying = true;
-
-    musicToggle.addEventListener("click", () => {
-      if (isPlaying) {
-        bgMusic.pause();
-        musicToggle.textContent = "🔇 Music Off";
-      } else {
-        bgMusic.play();
-        musicToggle.textContent = "🔈 Music On";
-      }
-      isPlaying = !isPlaying;
-    });
   </script>
 </body>
 </html>
