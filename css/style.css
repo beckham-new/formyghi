@@ -369,11 +369,6 @@ canvas {
   100% { opacity: 1; transform: scale(1.4); }
 }
 
-@media (max-width: 600px) {
-  button {
-    width: 90%;
-    font-size: 18px;
-  }
-}
+
 
 
