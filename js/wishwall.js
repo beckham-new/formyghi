@@ -75,60 +75,8 @@ function createFallingStar() {
   setTimeout(() => star.remove(), 1500);
 }
 
-// Ambil elemen
-const wishInput = document.getElementById("wishInput");
-const addWishBtn = document.getElementById("addWishBtn");
-const wishList = document.querySelector(".wish-list");
-
-// Muat data dari localStorage saat halaman dibuka
-window.onload = function() {
-  const savedWishes = JSON.parse(localStorage.getItem("wishes")) || [];
-  savedWishes.forEach(wish => createWishItem(wish));
-};
-
-// Fungsi untuk menambah wish baru
-addWishBtn.addEventListener("click", () => {
-  const wishText = wishInput.value.trim();
-  if (wishText !== "") {
-    createWishItem(wishText);
-    saveWish(wishText);
-    wishInput.value = "";
-  }
-});
-
-// Buat elemen wish di daftar
-function createWishItem(text) {
-  const li = document.createElement("li");
-  li.textContent = text;
-
-  const deleteBtn = document.createElement("button");
-  deleteBtn.textContent = "×";
-  deleteBtn.classList.add("delete-btn");
-  deleteBtn.onclick = () => {
-    li.remove();
-    deleteWish(text);
-  };
-
-  li.appendChild(deleteBtn);
-  wishList.appendChild(li);
-}
-
-// Simpan wish ke localStorage
-function saveWish(wish) {
-  const wishes = JSON.parse(localStorage.getItem("wishes")) || [];
-  wishes.push(wish);
-  localStorage.setItem("wishes", JSON.stringify(wishes));
-}
-
-// Hapus wish dari localStorage
-function deleteWish(wish) {
-  let wishes = JSON.parse(localStorage.getItem("wishes")) || [];
-  wishes = wishes.filter(w => w !== wish);
-  localStorage.setItem("wishes", JSON.stringify(wishes));
-}
-
-
 // Render pertama kali
 renderWishes();
+
 
 
