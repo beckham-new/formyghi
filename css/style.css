@@ -2,56 +2,30 @@
    LOGIN PAGE
 ===================================================== */
 .login-page {
-  position: relative;
+  background-color: #150E56;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   font-family: "Poppins", sans-serif;
-  color: #FBFBFB;
+  position: relative;
   overflow: hidden;
+  color: #FBFBFB;
 }
 
-/* Background blur foto */
-.login-page::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("images/foto-berdua.jpg") center/cover no-repeat;
-  filter: blur(12px) brightness(0.4);
-  z-index: -2;
-}
-
-/* Bintang kelap-kelip */
-.starry-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* Kontainer login transparan */
 .login-container {
-  background-color: rgba(123, 17, 58, 0.55);
+  background-color: rgba(123, 17, 58, 0.75);
   color: #FBFBFB;
   padding: 40px 30px;
   border-radius: 25px;
   text-align: center;
   width: 90%;
   max-width: 350px;
-  box-shadow: 0 0 25px rgba(251, 251, 251, 0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(251, 251, 251, 0.2);
   animation: fadeIn 1s ease-in-out;
   position: relative;
   z-index: 2;
+  backdrop-filter: (8px);
 }
 
 .login-container h2 {
@@ -69,7 +43,7 @@
   outline: none;
   font-size: 16px;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #FBFBFB;
   color: #150E56;
 }
 
@@ -330,107 +304,108 @@ body.home-page {
 }
 
 /* OUR PLAYLIST */
-/* OUR PLAYLIST */
 .playlist-container {
-  background: transparent; /* hilangkan kolom padat */
-  border: none;
-  padding: 0;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  box-shadow: none;
+  background-color: rgba(123, 17, 58, 0.7);
+  border-radius: 20px;
+  padding: 24px;
+  width: 92%;
+  max-width: 940px;
+  margin: 28px auto 16px;
+  box-shadow: 0 0 20px rgba(251, 251, 251, 0.15);
+  backdrop-filter: blur(8px);
 }
 
 .playlist-container h2,
 .tracks-grid h2 {
-  margin-top: 20px;
-  font-size: 1.6em;
-  color: #FBFBFB;
+  margin-top: 0;
 }
 
 .playlist-note {
-  opacity: 0.85;
-  margin-bottom: 10px;
+  opacity: 0.9;
+  margin-bottom: 14px;
 }
 
-/* iframe tampak menyatu tanpa bingkai */
 .embed-wrapper {
-  border: none;
-  border-radius: 12px;
+  border: 3px solid #FBFBFB;
+  border-radius: 16px;
   overflow: hidden;
-  background: none;
-  box-shadow: 0 0 8px rgba(251, 251, 251, 0.15);
+  background: #150E56;
 }
 
-/* Kartu lagu transparan dan minimalis */
+/* kartu lagu + deskripsi */
 .tracks-grid {
-  width: 94%;
+  width: 92%;
   max-width: 980px;
   margin: 12px auto 40px;
 }
 
 .tracks-grid .track-card {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 14px;
-  margin-bottom: 18px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  transition: transform 0.3s ease;
+  background-color: rgba(123, 17, 58, 0.65);
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 0 14px rgba(251, 251, 251, 0.12);
+  backdrop-filter: blur(6px);
 }
 
-.tracks-grid .track-card:hover {
-  transform: translateY(-5px);
+.embed-wrapper.small {
+  border-width: 2px;
 }
 
 .desc {
   margin-top: 10px;
   text-align: left;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 10px;
+  background: rgba(251, 251, 251, 0.08);
+  border-radius: 12px;
   padding: 10px 12px;
 }
 
-.desc summary {
+.desc > summary {
   cursor: pointer;
   font-weight: 600;
+  list-style: none;
+}
+
+.desc > summary::-webkit-details-marker {
+  display: none;
+}
+
+.desc > summary::after {
+  content: " +";
+  font-weight: 700;
+}
+
+.desc[open] > summary::after {
+  content: " −";
 }
 
 .desc p {
-  margin-top: 6px;
+  margin: 8px 0 0;
   color: #FBFBFB;
   opacity: 0.95;
-  line-height: 1.5;
 }
 
-/* Responsive — iframe menyesuaikan layar HP */
+/* responsive */
 @media (max-width: 600px) {
-  .tracks-grid .track-card {
-    padding: 10px;
-    border-radius: 14px;
+  .playlist-container, .tracks-grid .track-card {
+    padding: 14px;
   }
   .embed-wrapper iframe {
-    height: 280px !important; /* biar pas di HP */
-    width: 100%;
-  }
-  .playlist-container h2 {
-    font-size: 1.4em;
+    height: 320px !important; /* biar muat di hp */
   }
 }
 
-/* Tombol kembali */
+/* tombol kembali (konsisten dengan theme) */
 .back-btn {
   background-color: #FBFBFB;
   color: #150E56;
   border: none;
-  padding: 12px 22px;
+  padding: 10px 18px;
   border-radius: 12px;
   font-weight: 700;
   text-decoration: none;
   display: inline-block;
-  margin-top: 20px;
-  margin-bottom: 100px; /* supaya tidak ketutup navbar HP */
-  box-shadow: 0 0 10px rgba(251, 251, 251, 0.25);
+  margin-top: 8px;
   transition: 0.3s;
 }
 
@@ -438,31 +413,27 @@ body.home-page {
   background-color: #7B113A;
   color: #FBFBFB;
 }
+.footer a.back-btn {
+  margin-bottom: 90px; /* tambahkan jarak dari bawah */
+  display: inline-block;
+}
 
+@media (max-width: 600px) {
+  .footer a.back-btn {
+    margin-bottom: 110px; /* lebih tinggi di HP */
+  }
+}
 
-/* =====================================================
-   WISH WALL PAGE — versi estetik ✨
-===================================================== */
+/* WISH WALL PAGE */
 .wish-container {
-  background: rgba(123, 17, 58, 0.45);
+  background-color: rgba(123, 17, 58, 0.8);
   border-radius: 20px;
   width: 90%;
   max-width: 700px;
   margin: 40px auto;
   padding: 30px;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  text-align: center;
-  color: #FBFBFB;
-}
-
-.wish-container h2 {
-  margin-bottom: 15px;
-  font-size: 1.8em;
-  color: #FBFBFB;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
 }
 
 .wish-input {
@@ -475,22 +446,20 @@ body.home-page {
 
 #wishInput {
   width: 70%;
-  padding: 12px;
+  padding: 10px;
   border-radius: 10px;
   border: none;
   outline: none;
   font-size: 1em;
   color: #150E56;
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
 }
 
 #addWishBtn {
-  background: linear-gradient(135deg, #FBFBFB, #FFD1D1);
+  background-color: #FBFBFB;
   color: #7B113A;
   border: none;
   border-radius: 10px;
-  padding: 10px 22px;
+  padding: 10px 20px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
@@ -499,7 +468,7 @@ body.home-page {
 #addWishBtn:hover {
   background-color: #7B113A;
   color: #FBFBFB;
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 ul.wish-list {
@@ -510,42 +479,51 @@ ul.wish-list {
 }
 
 ul.wish-list li {
-  background-color: rgba(21, 14, 86, 0.6);
+  background-color: rgba(21, 14, 86, 0.8);
   color: #FBFBFB;
-  margin: 10px 0;
-  padding: 14px 18px;
-  border-radius: 14px;
+  margin: 8px 0;
+  padding: 12px 15px;
+  border-radius: 12px;
   font-size: 1em;
-  box-shadow: 0 0 12px rgba(251, 251, 251, 0.12);
-  transition: all 0.3s ease;
-  position: relative;
-  animation: fadeInUp 0.5s ease;
+  box-shadow: 0 0 10px rgba(251, 251, 251, 0.1);
+  transition: transform 0.3s;
 }
 
 ul.wish-list li:hover {
   transform: translateY(-3px);
-  background-color: rgba(21, 14, 86, 0.75);
 }
 
-/* Efek bintang jatuh setiap kali tambah wish */
+/* Bintang efek */
 .falling-star {
   position: fixed;
-  width: 4px;
-  height: 4px;
+  width: 3px;
+  height: 3px;
   background: #FBFBFB;
   border-radius: 50%;
   opacity: 0.9;
-  animation: fall 1.8s linear forwards;
+  animation: fall 1.5s linear forwards;
   z-index: 999;
-  box-shadow: 0 0 6px #FBFBFB;
 }
 
 @keyframes fall {
   0% { transform: translateY(0) translateX(0); opacity: 1; }
-  100% { transform: translateY(100vh) translateX(100px); opacity: 0; }
+  100% { transform: translateY(100vh) translateX(80px); opacity: 0; }
 }
 
-/* Tombol hapus kecil */
+ul.wish-list li button {
+  float: right;
+  background: transparent;
+  border: none;
+  color: #FFD1D1;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.2s;
+}
+ul.wish-list li button:hover {
+  transform: scale(1.2);
+}
+
+/* Tombol hapus */
 .delete-btn {
   float: right;
   background: transparent;
@@ -553,11 +531,10 @@ ul.wish-list li:hover {
   color: #FFD1D1;
   font-size: 1em;
   cursor: pointer;
-  transition: transform 0.2s, color 0.3s;
+  transition: 0.2s;
 }
 .delete-btn:hover {
-  transform: scale(1.3);
-  color: #FBFBFB;
+  transform: scale(1.2);
 }
 
 /* Popup konfirmasi hapus */
@@ -567,7 +544,7 @@ ul.wish-list li:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -575,17 +552,17 @@ ul.wish-list li:hover {
 }
 
 .confirm-content {
-  background-color: rgba(123, 17, 58, 0.95);
+  background-color: #7B113A;
   color: #FBFBFB;
-  padding: 25px 35px;
-  border-radius: 20px;
+  padding: 20px 30px;
+  border-radius: 15px;
   text-align: center;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
   animation: fadeIn 0.3s ease;
 }
 
 .confirm-buttons {
-  margin-top: 20px;
+  margin-top: 15px;
   display: flex;
   justify-content: center;
   gap: 15px;
@@ -595,8 +572,8 @@ ul.wish-list li:hover {
   background-color: #FBFBFB;
   color: #7B113A;
   border: none;
-  padding: 10px 20px;
-  border-radius: 12px;
+  padding: 8px 16px;
+  border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
   font-weight: bold;
@@ -607,8 +584,10 @@ ul.wish-list li:hover {
   color: #FBFBFB;
 }
 
-/* Animasi lembut muncul */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
+
+
+ganti setiap warna merah menjadi warna coklat dengan code 372414 dan warna biru dengan warna cream dengan code F7EBDF
