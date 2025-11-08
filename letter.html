@@ -137,7 +137,7 @@
     <div class="letter">
       <h3>Dear My Ghi</h3>
       <p id="text" class="typing"></p>
-      <a href="#" class="back-btn" onclick="parent.openPage('home.html')">Back Home</a>
+      <a href="#" class="back-btn" onclick="parent.openPage('main.html')">Back Home</a>
     </div>
   </div>
 
@@ -171,24 +171,18 @@ With love, Raph Beckham.`;
       paperSound.play();
 
       // Efek ngetik
-     let i = 0;
-function typeWriter() {
-  if (i < text.length) {
-    textElement.textContent += text.charAt(i);
-    i++;
-    const delay = 70 + Math.random() * 60; // variasi kecepatan tiap huruf
-    setTimeout(typeWriter, delay);
-  }
-}
-setTimeout(typeWriter, 800); // jeda sedikit sebelum mulai ngetik
-
+      let i = 0;
+      const speed = 60;
+      function typeWriter() {
+        if (i < text.length) {
+          textElement.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+      setTimeout(typeWriter, 500);
     });
   </script>
 
 </body>
 </html>
-
-
-
-
-
