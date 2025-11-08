@@ -11,11 +11,11 @@ function renderWishes() {
   wishList.innerHTML = "";
   wishes.forEach((wish, i) => {
     const li = document.createElement("li");
-    li.textContent = `🌠 ${wish}`;
+    li.textContent = `☆ ${wish}`;
 
     // Tombol hapus kecil
     const delBtn = document.createElement("button");
-    delBtn.textContent = "❌";
+    delBtn.textContent = "✘";
     delBtn.classList.add("delete-btn");
 
     // Event hapus dengan konfirmasi
@@ -25,10 +25,10 @@ function renderWishes() {
       confirmBox.classList.add("confirm-box");
       confirmBox.innerHTML = `
         <div class="confirm-content">
-          <p>Apakah yakin ingin menghapus wish ini?</p>
+          <p>Are you sure you want to delete this wish?</p>
           <div class="confirm-buttons">
-            <button class="yes-btn">Ya</button>
-            <button class="no-btn">Tidak</button>
+            <button class="yes-btn">Yes</button>
+            <button class="no-btn">No</button>
           </div>
         </div>
       `;
@@ -77,3 +77,4 @@ function createFallingStar() {
 
 // Render pertama kali
 renderWishes();
+
