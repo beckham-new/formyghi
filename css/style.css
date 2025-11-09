@@ -304,52 +304,31 @@ body.home-page {
 }
 
 /* Footer */
+/* =====================================================
+   FOOTER — Lebih tinggi agar tidak tertutup nav HP
+===================================================== */
 .footer {
   background-color: rgba(123, 17, 58, 0.6);
   color: #FBFBFB;
   width: 100%;
-  padding: 15px;
+  padding: 25px 15px;        /* sedikit lebih tebal dari sebelumnya */
   font-size: 0.9em;
   border-top: 3px solid #FBFBFB;
   backdrop-filter: blur(5px);
+  margin-bottom: 80px;       /* tambahan jarak bawah */
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 2s;
+  opacity: 0;
 }
 
-/* ===========================
-   GAMES
-=========================== */
-.mode-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
+/* Tambahan khusus untuk HP agar makin tinggi */
+@media (max-width: 600px) {
+  .footer {
+    padding: 35px 15px;      /* lebih besar di HP */
+    margin-bottom: 120px;    /* mencegah ketutup nav bar HP */
+  }
 }
 
-.mode-buttons button {
-  background-color: #FBFBFB;
-  color: #7B113A;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 12px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.mode-buttons button:hover {
-  background-color: #7B113A;
-  color: #FBFBFB;
-}
-
-#gameArea {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: rgba(21, 14, 86, 0.6);
-  border-radius: 15px;
-  min-height: 300px;
-  color: #FBFBFB;
-  backdrop-filter: blur(6px);
-}
 
 /* =====================================================
    RESPONSIVE (HP)
@@ -409,7 +388,6 @@ body.home-page {
   100% { opacity: 1; transform: scale(1.4); }
 }
 
-/* OUR PLAYLIST */
 /* OUR PLAYLIST */
 .playlist-container {
   background: transparent; /* hilangkan kolom padat */
@@ -692,4 +670,5 @@ ul.wish-list li:hover {
   from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 
