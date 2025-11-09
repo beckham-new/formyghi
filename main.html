@@ -47,12 +47,12 @@
 
 <body>
   <!-- Pemutar Musik Global -->
-  <audio id="bgMusic" loop autoplay>
+  <audio id="bgMusic" loop>
     <source src="music/softlove.mp3" type="audio/mpeg">
   </audio>
 
   <!-- Tombol Musik -->
-  <button class="music-btn" id="musicToggle">🔈 Music On</button>
+  <button class="music-btn" id="musicToggle">🔇 Music Off</button>
 
   <!-- Frame Utama -->
   <iframe id="pageFrame" src="home.html"></iframe>
@@ -61,15 +61,18 @@
     // --- Kontrol musik ---
     const bgMusic = document.getElementById("bgMusic");
     const musicToggle = document.getElementById("musicToggle");
-    let isPlaying = true;
+    let isPlaying = false;
 
     musicToggle.addEventListener("click", () => {
       if (isPlaying) {
         bgMusic.pause();
         musicToggle.textContent = "🔇 Music Off";
       } else {
-        bgMusic.play();
-        musicToggle.textContent = "🔈 Music On";
+        bgMusic.play().then(() => {
+          musicToggle.textContent = "🔈 Music On";
+        }).catch(err => {
+          console.log("Autoplay diblokir, perlu interaksi pengguna dulu:", err);
+        });
       }
       isPlaying = !isPlaying;
     });
