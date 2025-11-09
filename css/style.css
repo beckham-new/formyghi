@@ -321,14 +321,6 @@ body.home-page {
   opacity: 0;
 }
 
-/* Tambahan khusus untuk HP agar makin tinggi */
-@media (max-width: 600px) {
-  .footer {
-    padding: 35px 15px;      /* lebih besar di HP */
-    margin-bottom: 120px;    /* mencegah ketutup nav bar HP */
-  }
-}
-
 
 /* =====================================================
    RESPONSIVE (HP)
@@ -670,5 +662,6 @@ ul.wish-list li:hover {
   from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
