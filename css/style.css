@@ -175,6 +175,86 @@ body.home-page {
   transform: scale(1.08);
 }
 
+/* =====================================================
+   OUR MEMORIES – Fade-in Effect & Optimization
+===================================================== */
+
+/* Efek fade-in lembut untuk seluruh halaman home */
+body.home-page {
+  opacity: 0;
+  animation: fadeInBody 1.5s ease forwards;
+}
+
+@keyframes fadeInBody {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Elemen-elemen utama muncul bergiliran */
+.header {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.gallery {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.8s;
+}
+
+.photo-grid img {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1.1s;
+}
+
+.words {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1.4s;
+}
+
+.links {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1.7s;
+}
+
+.footer {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 2s;
+}
+
+/* Animasi fade-in dari bawah */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =====================================================
+   OPTIMASI UNTUK HP – Kurangi efek berat
+===================================================== */
+@media (max-width: 600px) {
+  .gallery,
+  .words,
+  .link-card,
+  .header,
+  .footer {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    animation-duration: 0.9s !important;
+  }
+
+  .photo-grid img {
+    animation-delay: 0.5s !important;
+  }
+}
+
+
 /* Kata-kata */
 .words {
   background-color: rgba(123, 17, 58, 0.7);
@@ -612,3 +692,4 @@ ul.wish-list li:hover {
   from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
